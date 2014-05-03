@@ -1,11 +1,11 @@
 
 public class Principal {
-
+        
 	public static void main(String[] args) {
-	    //creamos el objeto equipo y lo iniciamos con un valor
-        Equipo equipo = new Equipo("",0,0,0,0); 
-		//mostramos la Ventana Equipo
-        VentanaEquipo frame = new VentanaEquipo(equipo);
+        //creamos el bojeto liga 
+		Liga liga = new Liga(); 
+		//llamamos a la Ventana liga 
+        VentanaLiga frame = new VentanaLiga(liga);
 		frame.setVisible(true);
 	}
 

@@ -17,7 +17,14 @@ public class Equipo implements Serializable{
 		partidosGanados = partidosG;
 		partidosPerdidos = partidosP;				
 	}
-
+	//creamos el constructor sin parametros
+		public Equipo(){
+			nombreEquipo="";
+			golesFavor = 0;
+			golesEnContra = 0;
+			partidosGanados = 0;
+			partidosPerdidos= 0;
+		}
     //metodo para asignar el nombre del Equipo
 	public void setNombre (String nom){
 		nombreEquipo = nom;

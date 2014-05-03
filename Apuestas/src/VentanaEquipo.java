@@ -37,7 +37,7 @@ public class VentanaEquipo extends JFrame {
 		equipo = equipoAModificar;
 		setTitle("Ventana Equipo");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 480, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -96,10 +96,9 @@ public class VentanaEquipo extends JFrame {
 		contentPane.add(textopartidosper);
 		textopartidosper.setColumns(10);
 		//creamos el boton Guardar
-		JButton btnNewButton = new JButton("Guardar");
+		JButton btnNewButton = new JButton("Guardar A Disco");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//guardamos en el objeto equipo los parametros que insertamos el los textField
 				equipo.setNombre(textonombre.getText());
 				equipo.setGolesFavor(Integer.valueOf(textogolesafavor.getText()));
 				equipo.setGolesContra(Integer.valueOf(textogolesenc.getText()));
@@ -111,15 +110,14 @@ public class VentanaEquipo extends JFrame {
 			}
 		});
 		
-		btnNewButton.setBounds(115, 217, 89, 23);
+		btnNewButton.setBounds(32, 217, 129, 23);
 		contentPane.add(btnNewButton);
 		//creamos el boton leer
-		JButton btnNewButton_1 = new JButton("leer");
+		JButton btnNewButton_1 = new JButton("Leer A Disco");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//llamamos al metodo recuperar fichero
 				recuperarFichero();
-				//llamamos a los metodos y los mostramos en los bloques de texto
 				textonombre.setText(equipo.getNombre());
 				textogolesafavor.setText(String.valueOf(equipo.getGolesFavor()));
 				textogolesenc.setText(String.valueOf(equipo.getGolesContra()));
@@ -127,10 +125,27 @@ public class VentanaEquipo extends JFrame {
 				textopartidosper.setText(String.valueOf(equipo.getPartidosPerdidos()));
 			}
 		});
-		btnNewButton_1.setBounds(256, 217, 89, 23);
+		btnNewButton_1.setBounds(208, 217, 121, 23);
 		contentPane.add(btnNewButton_1);
+		//creamos el boton guardar
+		JButton btnNewButton_2 = new JButton("Guardar");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				guardarEquipo();
+			}
+		});
+		btnNewButton_2.setBounds(365, 217, 89, 23);
+		contentPane.add(btnNewButton_2);
 		
 	}
+	
+	    private void guardarEquipo(){
+	    	equipo.setNombre(textonombre.getText());
+			equipo.setGolesFavor(Integer.valueOf(textogolesafavor.getText()));
+			equipo.setGolesContra(Integer.valueOf(textogolesenc.getText()));
+			equipo.setPartidosGanados(Integer.valueOf(textopartidosga.getText()));
+			equipo.setPartidosPerdidos(Integer.valueOf(textopartidosper.getText()));
+	    }
 	    //metodo Guardar En Fichero
 		private void guardarEnFichero(){
 			try
